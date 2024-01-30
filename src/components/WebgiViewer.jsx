@@ -22,6 +22,7 @@ import {
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { scrollAnimation } from '../lib/scroll-animation';
+import heartImg from '../assets/images/heart.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -182,9 +183,17 @@ const WebgiViewer = forwardRef((props, ref) => {
     <div ref={canvasContainerRef} id='webgi-canvas-container'>
       <canvas id='webgi-canvas' ref={canvasRef} />
       {previewMode && (
-        <button className='button' onClick={handleExit}>
-          Exit
-        </button>
+        <React.Fragment>
+          <button className='button' onClick={handleExit}>
+            Exit
+          </button>
+
+          <div className='preview-content'>
+            <p>Made with</p>
+            <img src={heartImg} alt='heart' />
+            <p>and Sanu {'<3'}</p>
+          </div>
+        </React.Fragment>
       )}
     </div>
   );
